@@ -1,160 +1,154 @@
 # ML Model CI/CD Pipeline
 
-This project implements a CI/CD pipeline for a simple CNN model trained on the MNIST dataset. The pipeline includes automated training, testing, and validation steps.
+[![ML Pipeline](https://github.com/nagalakshmi-nimmagadda/mnist-mlops-pipeline/actions/workflows/ml-pipeline.yml/badge.svg)](https://github.com/nagalakshmi-nimmagadda/mnist-mlops-pipeline/actions/workflows/ml-pipeline.yml)
 
-## Project Structure 
+A lightweight CNN-based MNIST classifier with complete CI/CD pipeline implementation. Features automated training, testing, and validation using GitHub Actions. The model achieves >95% accuracy with <25K parameters in single epoch training.
 
-project/
+## 📋 Project Structure 
+
+```
+mnist-mlops-pipeline/
 ├── .github/
-│ └── workflows/
-│ └── ml-pipeline.yml # GitHub Actions workflow configuration
-├── train.py # Model architecture and training script
-├── test_model.py # Test cases and validation logic
-├── pytest.ini # Pytest configuration
-├── requirements.txt # Project dependencies
-└── .gitignore # Git ignore rules
+│   └── workflows/
+│       └── ml-pipeline.yml    # GitHub Actions workflow
+├── train.py                   # Model and training logic
+├── test_model.py             # Test suite
+├── pytest.ini                # Pytest configuration
+├── requirements.txt          # Dependencies
+└── .gitignore               # Git ignore rules
+```
 
+## ✨ Features
 
+### 🧠 Model Architecture
+- Simple CNN for MNIST digit classification
+- Less than 25,000 parameters
+- Achieves ≥95% accuracy on test set
+- Input: 28x28 grayscale images
+- Output: 10 classes (digits 0-9)
 
-## Features
+### 🔄 Automated Tests
+1. Architecture Validation
+   - Verifies input/output dimensions
+   - Checks parameter count
+2. Performance Validation
+   - Tests model accuracy on MNIST test set
+   - Validates accuracy threshold
 
-- **Model Architecture**:
-  - Simple CNN for MNIST digit classification
-  - Less than 25,000 parameters
-  - Achieves ≥95% accuracy on test set
-  - Input: 28x28 grayscale images
-  - Output: 10 classes (digits 0-9)
+### 🚀 CI/CD Pipeline
+- Automated training and testing on push
+- Model artifact storage
+- Test results archival
 
-- **Automated Tests**:
-  1. Architecture Validation
-     - Verifies input/output dimensions
-     - Checks parameter count
-  2. Performance Validation
-     - Tests model accuracy on MNIST test set
-     - Validates accuracy threshold
-
-- **CI/CD Pipeline**:
-  - Automated training and testing on push
-  - Model artifact storage
-  - Test results archival
-
-## Setup and Usage
+## 🛠️ Setup and Usage
 
 ### Local Development
 
-1. **Create Virtual Environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+1. **Create Virtual Environment**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-2. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. **Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
 
-3. **Train Model**:
-   ```bash
-   python train.py
-   ```
-   This will:
-   - Download MNIST dataset (if needed)
-   - Train model for one epoch
-   - Save model with timestamp
+3. **Train Model**
+```bash
+python train.py
+```
+This will:
+- Download MNIST dataset (if needed)
+- Train model for one epoch
+- Save model with timestamp
 
-4. **Run Tests**:
-   ```bash
-   python test_model.py
-   ```
-   This will run:
-   - Architecture validation
-   - Performance validation
-   - Display detailed results
+4. **Run Tests**
+```bash
+python test_model.py
+```
 
 ### GitHub Integration
 
-1. **Repository Setup**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin <your-repo-url>
-   git push -u origin main
-   ```
+1. **Repository Setup**
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin <your-repo-url>
+git push -u origin main
+```
 
-2. **GitHub Actions**:
-   - Automatically triggers on push
-   - Runs training and testing
-   - Stores model artifacts
-   - Archives test results
+2. **GitHub Actions** will automatically:
+- Trigger on push
+- Run training and testing
+- Store model artifacts
+- Archive test results
 
-## Test Output Format
+## 📊 Test Output Format
 
-The tests provide detailed output:
-
+```
 ================================================================================
 Test 1: Model Architecture Validation
 ================================================================================
-Testing Input/Output Dimensions:
-✓ Input shape: (1, 1, 28, 28)
-✓ Output shape: (1, 10)
-Checking Model Size:
-✓ Total parameters: 7,098
-✓ Requirement: < 25,000 parameters
-================================================================================
-Test 2: Model Performance Evaluation
-================================================================================
-...
+1. Testing Input/Output Dimensions:
+  ✓ Input shape: (1, 1, 28, 28)
+  ✓ Output shape: (1, 10)
 
+2. Checking Model Size:
+  ✓ Total parameters: 7,098
+  ✓ Requirement: < 25,000 parameters
+```
 
-## Dependencies
+## 📦 Dependencies
 
-- torch>=2.0.0
-- torchvision>=0.15.0
-- pytest>=7.0.0
-- numpy>=1.21.0
+- `torch>=2.0.0`
+- `torchvision>=0.15.0`
+- `pytest>=7.0.0`
+- `numpy>=1.21.0`
 
-## Model Details
+## 🔍 Model Details
 
-- **Architecture**:
-  - 2 Convolutional layers
-  - 2 MaxPool layers
-  - 2 Fully connected layers
-  - ReLU activations
-  - Total parameters: ~7,098
+### Architecture
+- 2 Convolutional layers
+- 2 MaxPool layers
+- 2 Fully connected layers
+- ReLU activations
+- Total parameters: ~7,098
 
-- **Training**:
-  - Dataset: MNIST
-  - Optimizer: Adam
-  - Learning rate: 0.001
-  - Batch size: 64
-  - Epochs: 1
+### Training
+- Dataset: MNIST
+- Optimizer: Adam
+- Learning rate: 0.001
+- Batch size: 64
+- Epochs: 1
 
-## Notes
+## 📝 Notes
 
 - Models are saved with timestamps for versioning
 - Tests must pass before deploying
 - GitHub Actions runs on CPU
 - Test dataset is automatically downloaded
 
-## Troubleshooting
+## ❗ Troubleshooting
 
-1. **Model Not Found Error**:
-   - Ensure you've run `train.py` before testing
-   - Check if model file exists in project directory
+### Model Not Found Error
+- Ensure you've run `train.py` before testing
+- Check if model file exists in project directory
 
-2. **Dependency Issues**:
-   - Verify Python version (3.8 recommended)
-   - Update pip: `pip install --upgrade pip`
-   - Reinstall dependencies: `pip install -r requirements.txt`
+### Dependency Issues
+- Verify Python version (3.8 recommended)
+- Update pip: `pip install --upgrade pip`
+- Reinstall dependencies: `pip install -r requirements.txt`
 
-3. **Test Failures**:
-   - Check model architecture changes
-   - Verify training completed successfully
-   - Ensure MNIST dataset downloaded correctly
+### Test Failures
+- Check model architecture changes
+- Verify training completed successfully
+- Ensure MNIST dataset downloaded correctly
 
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create feature branch
@@ -162,15 +156,9 @@ Test 2: Model Performance Evaluation
 4. Push to branch
 5. Create Pull Request
 
-## License
+## 📄 License
 
-This project is open source and available under the MIT License.
+This project is open source and available under the [MIT License](LICENSE).
 
-This README.md provides:
-Clear project structure
-Step-by-step setup instructions
-Usage guidelines
-Test output examples
-Troubleshooting tips
-Detailed model information
-Contributing guidelines
+---
+Made with ❤️ using PyTorch and GitHub Actions
