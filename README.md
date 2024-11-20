@@ -1,6 +1,20 @@
 # ML Model CI/CD Pipeline
 
 [![ML Pipeline](https://github.com/nagalakshmi-nimmagadda/mnist-mlops-pipeline/actions/workflows/ml-pipeline.yml/badge.svg)](https://github.com/nagalakshmi-nimmagadda/mnist-mlops-pipeline/actions/workflows/ml-pipeline.yml)
+[![Python](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Tests](https://img.shields.io/badge/tests-5%20passed-brightgreen.svg)](https://github.com/nagalakshmi-nimmagadda/mnist-mlops-pipeline/actions)
+
+[![Model Size](https://img.shields.io/badge/Model%20Size-<25K%20params-success.svg)](https://github.com/nagalakshmi-nimmagadda/mnist-mlops-pipeline)
+[![Accuracy](https://img.shields.io/badge/Accuracy-≥95%25-brightgreen.svg)](https://github.com/nagalakshmi-nimmagadda/mnist-mlops-pipeline)
+[![Dataset](https://img.shields.io/badge/Dataset-MNIST-lightgrey.svg)](http://yann.lecun.com/exdb/mnist/)
+[![Inference Time](https://img.shields.io/badge/Inference-<1s-blue.svg)](https://github.com/nagalakshmi-nimmagadda/mnist-mlops-pipeline)
+[![Documentation](https://img.shields.io/badge/docs-passing-brightgreen.svg)](https://github.com/nagalakshmi-nimmagadda/mnist-mlops-pipeline)
+
+## 🖼️ Augmentation Examples
+![Augmentation Samples](augmentation_samples.png)
 
 A lightweight CNN-based MNIST classifier with complete CI/CD pipeline implementation. Features automated training, testing, and validation using GitHub Actions. The model achieves >95% accuracy with <25K parameters in single epoch training.
 
